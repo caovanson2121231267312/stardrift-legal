@@ -1,0 +1,43 @@
+/* Shared style for privacy.html and support.html: the game's dark "Nebula Glass" look, readable long-form text. */
+:root{
+  --bg:#05071a;--card:#0c1030;--text:#eef1ff;--dim:#aab3d6;--line:rgba(170,195,255,.18);--accent:#7fe3ff;--accent2:#ff8ee0;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(ellipse 90% 50% at 50% 0%,rgba(90,70,200,.28),transparent 70%),var(--bg);color:var(--text);
+  font:16px/1.65 'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;
+  padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
+.wrap{max-width:760px;margin:0 auto;padding:28px 16px 56px}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-bottom:22px}
+.brand{font-weight:800;font-size:20px;letter-spacing:.08em;text-decoration:none;
+  background:linear-gradient(100deg,#9ef3ff,#c5b2ff,#ff9fe4);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav.lang{margin-left:auto;display:flex;gap:4px;border:1px solid var(--line);border-radius:999px;padding:3px}
+nav.lang a{color:var(--dim);text-decoration:none;font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px}
+nav.lang a.on{background:linear-gradient(90deg,#7fe3ff,#ff8ee0);color:#070a1c}
+h1{font-size:clamp(26px,6vw,36px);line-height:1.2;margin:0 0 6px}
+.meta{color:var(--dim);font-size:14px;margin:0 0 22px}
+h2{font-size:19px;margin:30px 0 8px;color:#fff}
+h3{font-size:16px;margin:18px 0 4px}
+p,li{color:#dfe4fb}
+ul{padding-left:22px}
+li{margin:4px 0}
+a{color:var(--accent)}
+.summary{background:linear-gradient(135deg,rgba(127,227,255,.10),rgba(255,142,224,.08));border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:0 0 8px}
+.summary p{margin:6px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:12px 0}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.mail a{font-weight:700;font-size:17px;word-break:break-all}
+.mail button{appearance:none;font:600 13px inherit;font-family:inherit;color:var(--text);background:rgba(255,255,255,.07);border:1px solid var(--line);
+  border-radius:999px;padding:6px 14px;cursor:pointer}
+details{border-top:1px solid var(--line);padding:10px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;list-style-position:outside}
+details p,details ul{margin:8px 0 2px}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--dim);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 18px}
+/* one language at a time; English when scripts are off */
+[data-l]{display:none}
+html[data-lang="en"] [data-l="en"],html[data-lang="vi"] [data-l="vi"],html[data-lang="zh"] [data-l="zh"]{display:revert}
+/* inside the game the close bar is the app's own, so the page drops its header brand */
+html.embed header .brand{visibility:hidden}
+html.embed .wrap{padding-top:16px}
